@@ -1,0 +1,55 @@
+tools:
+  - name: knowledge_search
+    description: Semantic search over past IT resolution summaries in Milvus.
+    version: "1.0"
+    approval_required: false
+    parameters:
+      query:
+        type: string
+        required: true
+      top_k:
+        type: integer
+        default: 3
+
+  - name: access_check
+    description: Return mock account/SLA status for the requester.
+    version: "1.0"
+    approval_required: false
+    parameters:
+      ticket_hints:
+        type: object
+        required: false
+
+  - name: propose_resolution
+    description: Propose a user-facing resolution based on evidence.
+    version: "1.0"
+    approval_required: false
+    parameters:
+      draft:
+        type: string
+        required: true
+
+  - name: privileged_access_change
+    description: Privileged IAM/MFA/production access change (mock).
+    version: "1.0"
+    approval_required: true
+    parameters:
+      action:
+        type: string
+        required: true
+
+  - name: create_jira_ticket
+    description: Create a Jira ticket template and save it under jira_tickets/.
+    version: "1.0"
+    approval_required: false
+    parameters:
+      summary:
+        type: string
+        required: true
+      description:
+        type: string
+        required: true
+      priority:
+        type: string
+        required: false
+

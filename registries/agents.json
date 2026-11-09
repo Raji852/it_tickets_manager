@@ -1,0 +1,44 @@
+{
+  "agents": [
+    {
+      "name": "intent_analyzer",
+      "description": "Understands the user question; blocks non-IT/generic queries.",
+      "capabilities": ["intent_classification", "it_relevance_gate"]
+    },
+    {
+      "name": "knowledge_search",
+      "description": "Retrieves similar past resolutions from Milvus.",
+      "capabilities": ["rag", "semantic_search"]
+    },
+    {
+      "name": "access_check",
+      "description": "Returns mock account and SLA status.",
+      "capabilities": ["account_lookup", "sla_lookup"]
+    },
+    {
+      "name": "reasoning",
+      "description": "Drafts root-cause analysis and next steps from evidence.",
+      "capabilities": ["planning_steps", "policy_awareness"]
+    },
+    {
+      "name": "action",
+      "description": "Routes to self-service resolution or Jira ticket creation.",
+      "capabilities": ["resolution_drafting", "jira_routing"]
+    },
+    {
+      "name": "jira_ticket",
+      "description": "Creates a Jira ticket template under jira_tickets/.",
+      "capabilities": ["jira_template", "ticket_persist"]
+    },
+    {
+      "name": "reflection",
+      "description": "Checks groundedness and sets HITL when policy requires it.",
+      "capabilities": ["groundedness_check", "hitl_gate"]
+    },
+    {
+      "name": "hitl",
+      "description": "Pauses for human approval on privileged actions.",
+      "capabilities": ["human_approval"]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+policies:
+  - id: privileged_keywords
+    description: Require HITL when the query implies privileged IAM/MFA/prod access changes.
+    approval_required: true
+    match_keywords:
+      - mfa reset
+      - reset mfa
+      - admin rights
+      - local admin
+      - production database
+      - prod db
+      - privileged
+      - pam
+      - break glass
+
+  - id: critical_priority_access
+    description: Require HITL for access-category tickets that look critical.
+    approval_required: true
+    match_categories:
+      - access
+    match_keywords:
+      - critical
+      - cannot log in
+      - locked out
